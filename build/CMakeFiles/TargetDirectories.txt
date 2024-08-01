@@ -1,0 +1,3 @@
+/home/sameep/Documents/Code/projects/Dash/build/CMakeFiles/Dash.dir
+/home/sameep/Documents/Code/projects/Dash/build/CMakeFiles/edit_cache.dir
+/home/sameep/Documents/Code/projects/Dash/build/CMakeFiles/rebuild_cache.dir

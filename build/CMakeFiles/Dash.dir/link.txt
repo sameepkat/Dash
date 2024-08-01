@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/Dash.dir/main.c.o CMakeFiles/Dash.dir/file_loc.c.o -o Dash

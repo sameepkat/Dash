@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-  char *token;
+  char *token, *path;
   char **array;
   int i;
   (void)argc, (void)argv;
@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
   int status;
 
   while (1) {
-  write(STDOUT_FILENO,"Dashed$ ",9);
+  write(STDOUT_FILENO,"Dashed$ ",8);
   nread = getline(&buf, &count, stdin);
   if(nread == -1)
   {
@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
       i++;
     }
     array[i] = NULL;
+    path = get_file_path(array[0]);
     child_pid = fork();
     if(child_pid == -1)
     {
@@ -38,9 +39,9 @@ int main(int argc, char *argv[])
     }
     if(child_pid == 0)
     {
-      if(execve(array[0], array, NULL) == -1)
+      if(execve(path, array, NULL) == -1)
       {
-        perror("Couldn't execute");
+        perror("Failed to execute");
         exit(97);
       }
     }
@@ -48,6 +49,7 @@ int main(int argc, char *argv[])
       wait(&status);
     }
   }
+  free(path);
   free(buf);
   return (0);
 }
