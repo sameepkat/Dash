@@ -58,6 +58,13 @@ char *strdup(const char *s);
 ```
 Description: Returns a pointer to a new string which is a duplicate of the string s.
 
+### 10. Isatty()
+```cpp
+int isatty(int fd);
+```
+Description: Checks if the file is opened in interactive or non-interactive mode using the file descriptor.
+
+
 # Misc
 
 #### 1. size_t, ssize_t 

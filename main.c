@@ -14,13 +14,14 @@ int main(int argc, char *argv[])
 
   while (1) {
   write(STDOUT_FILENO,"Dashed$ ",8);
+  if(isatty(STDIN_FILENO))
+    write(STDOUT_FILENO, "Dashed$ ", 8);
   nread = getline(&buf, &count, stdin);
   if(nread == -1)
   {
-    perror("Exiting shell");
-    exit(1);
+    exit(0);
   }
-    token = strtok(buf, "\n");
+    token = strtok(buf, " \n");
     array = malloc(sizeof(char *) * 1024);
     i = 0;
     while(token)

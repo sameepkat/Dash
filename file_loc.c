@@ -1,6 +1,6 @@
 #include "main.h"
 
-char * full_path;
+//char *full_path;
 
 
 int startsWithForwardSlash(const char *str)
@@ -54,6 +54,7 @@ char *get_file_loc(char *path, char *file_name)
 char *get_file_path(char *file_name)
 {
   char *path = getenv("PATH");
+  char *full_path;
   if(startsWithForwardSlash(file_name) && access(file_name, X_OK) ==0)
     return (strdup(file_name));
   if(!path)
